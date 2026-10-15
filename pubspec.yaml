@@ -1,0 +1,20 @@
+name: shopkeep
+description: Offline-first POS, inventory and bookkeeping for small shops (Android + PWA).
+publish_to: none
+version: 0.1.0
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+dependencies:
+  flutter: {sdk: flutter}
+  hive_flutter: ^1.1.0        # IndexedDB on web, files on Android; no codegen
+  connectivity_plus: ^6.0.0
+  http: ^1.2.0
+  crypto: ^3.0.3
+  intl: ^0.19.0
+  print_bluetooth_thermal: ^1.1.0   # Bluetooth receipt printers (Android)
+  mobile_scanner: '>=6.0.0 <8.0.0'  # camera barcode scanning
+  url_launcher: ^6.3.0         # opens the shop's own WhatsApp / SMS app
+flutter:
+  uses-material-design: true
+# Build:  flutter build web --release --wasm --pwa-strategy=offline-first
+#         flutter build apk --release --split-per-abi
