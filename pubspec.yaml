@@ -18,3 +18,7 @@ flutter:
   uses-material-design: true
 # Build:  flutter build web --release --wasm --pwa-strategy=offline-first
 #         flutter build apk --release --split-per-abi
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
