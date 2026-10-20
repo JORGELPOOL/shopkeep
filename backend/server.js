@@ -1,6 +1,10 @@
 import express from 'express';
 import fs from 'node:fs';
 import crypto from 'node:crypto';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const env = process.env;
 const app = express();
@@ -333,4 +337,24 @@ app.get(['/export/sales.csv', '/export/expenses.csv', '/export/pnl.csv'], (req, 
   res.send({ sales: salesCsv, expenses: expensesCsv, pnl: pnlCsv }[type](db.shops[l.shopId], l.from, l.to));
 });
 
-app.listen(env.PORT || 3000, () => console.log('ShopKeep backend up'));
+// Backend health check
+app.get('/health', (_req, res) => {
+  res.json({ ok: true, service: 'ShopKeep backend' });
+});
+
+// Serve the Flutter web build
+const webDir = path.join(__dirname, 'public');
+app.use(express.static(webDir));
+
+// Flutter web fallback for page navigation
+app.get('*', (req, res, next) => {
+  if (req.path.startsWith('/api/')) return next();
+
+  res.sendFile(path.join(webDir, 'index.html'), (err) => {
+    if (err) next(err);
+  });
+});
+
+app.listen(env.PORT || 3000, () => {
+  console.log('ShopKeep backend up');
+});
