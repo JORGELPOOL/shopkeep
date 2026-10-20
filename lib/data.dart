@@ -8,8 +8,8 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:http/http.dart' as http;
 import 'momo.dart';
 
-const apiBase = 'https://api.example.com'; // your backend (holds all MoMo/SMS secrets)
-const appKey = 'change-me'; // must match APP_KEY in backend/.env
+const apiBase = 'https://shopkeep-production-4de7.up.railway.app';
+const appKey = 'YOUR_ACTUAL_APP_KEY';
 Map<String, String> get apiHeaders => {'Content-Type': 'application/json', 'x-api-key': appKey,
   'x-shop-id': Db.i.meta.get('shopId', defaultValue: ''), 'x-token': Db.i.meta.get('token', defaultValue: '')};
 
