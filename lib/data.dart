@@ -1,4 +1,4 @@
-import 'dart:async';
+﻿import 'dart:async';
 import 'dart:math';
 import 'dart:convert';
 import 'package:connectivity_plus/connectivity_plus.dart';
@@ -9,7 +9,7 @@ import 'package:http/http.dart' as http;
 import 'momo.dart';
 
 const apiBase = 'https://shopkeep-production-4de7.up.railway.app';
-const appKey = 'YOUR_ACTUAL_APP_KEY';
+const appKey = String.fromEnvironment('APP_KEY');
 Map<String, String> get apiHeaders => {'Content-Type': 'application/json', 'x-api-key': appKey,
   'x-shop-id': Db.i.meta.get('shopId', defaultValue: ''), 'x-token': Db.i.meta.get('token', defaultValue: '')};
 
@@ -216,7 +216,7 @@ class Db extends ChangeNotifier {
     s['status'] = 'paid'; s['paidAt'] = DateTime.now().toIso8601String();
     await put(sales, s);
     if (s['phone'] != null && s['device'] == meta.get('deviceId')) { // only the selling phone sends the receipt
-      Momo.notify(s['phone'], 'Received GH₵${(s['total'] as num).toStringAsFixed(2)} at ${meta.get('shop')}. Thank you!');
+      Momo.notify(s['phone'], 'Received GHâ‚µ${(s['total'] as num).toStringAsFixed(2)} at ${meta.get('shop')}. Thank you!');
     }
   }
 
@@ -314,3 +314,4 @@ class Db extends ChangeNotifier {
     } catch (_) {/* offline: keep queue */} finally { _syncing = false; }
   }
 }
+

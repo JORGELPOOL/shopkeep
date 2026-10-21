@@ -29299,7 +29299,7 @@ _.f=f},
 Mb(){var s,r=$.bo(),q=r.x
 q===$&&A.a()
 s=t.N
-return A.ae(["Content-Type","application/json","x-api-key","YOUR_ACTUAL_APP_KEY","x-shop-id",q.oK(0,"shopId",""),"x-token",r.x.oK(0,"token","")],s,s)},
+return A.ae(["Content-Type","application/json","x-api-key","\x16","x-shop-id",q.oK(0,"shopId",""),"x-token",r.x.oK(0,"token","")],s,s)},
 uZ(a){var s=A.cC("\\D",!0,!1),r=A.nL(a,s,"")
 return B.c.bF(r,"233")?r:"233"+B.c.tZ(r,A.cC("^0",!0,!1),"")},
 Bu:function Bu(a,b){var _=this
@@ -100825,7 +100825,7 @@ if(l){l=n.h(0,"phone")
 o=B.d.ad(A.dm(n.h(0,"total")),2)
 m=p.x
 m===$&&A.a()
-A.Dz(l,"Received GH\u20b5"+o+" at "+A.k(m.ca(0,"shop"))+". Thank you!")}case 1:return A.K(q,r)}})
+A.Dz(l,"Received GH\xe2\u201a\xb5"+o+" at "+A.k(m.ca(0,"shop"))+". Thank you!")}case 1:return A.K(q,r)}})
 return A.L($async$qM,r)},
 rT(a,b){return this.arm(a,b)},
 arm(a,b){var s=0,r=A.M(t.H),q,p=this,o,n,m,l,k,j

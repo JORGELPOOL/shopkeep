@@ -23,3 +23,5 @@ npm-debug.log*
 # OS files
 .DS_Store
 Thumbs.db
+
+app_key.json
